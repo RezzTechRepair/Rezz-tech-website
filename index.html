@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rezz Tech Repairs | Book Your Repair</title>
+<meta name="description" content="Rezz Tech Repairs — choose your device, repair and model, see your final price, and request pickup or drop-off.">
+<style>
+:root{--navy:#081722;--ink:#142330;--muted:#687987;--blue:#087bd1;--cyan:#11b9f1;--ice:#f2f8fc;--line:#dfe8ee;--green:#118453;--shadow:0 22px 70px rgba(8,23,34,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}.wrap{width:min(1160px,92%);margin:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:13px;border:1px solid transparent;font-weight:900;cursor:pointer}.primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;box-shadow:0 12px 28px rgba(8,123,209,.20)}.light{background:#fff;border-color:var(--line);color:var(--ink)}
+/* opening */
+.splash{position:fixed;inset:0;background:#fff;z-index:9999;display:grid;place-items:center;animation:hideSplash .65s 3.05s forwards}.splashInner{position:relative;width:min(520px,92vw);height:330px;display:grid;place-items:center}.splashLogo{width:min(330px,64vw);position:relative;z-index:2;filter:drop-shadow(0 18px 28px rgba(8,23,34,.14));animation:logoIn .7s .25s both}.dino{position:absolute;left:-15px;top:74px;z-index:4;font-size:92px;line-height:1;filter:drop-shadow(0 12px 12px rgba(8,23,34,.18));animation:bite 2.25s .55s cubic-bezier(.16,.82,.22,1) forwards}.dino:before{content:"";position:absolute;right:7px;top:35px;width:43px;height:10px;background:white;border-radius:7px;box-shadow:0 14px 0 white}.splashCaption{position:absolute;bottom:15px;opacity:0;font-size:.72rem;font-weight:950;letter-spacing:.23em;color:#607281;animation:caption .5s 2s forwards}
+@keyframes logoIn{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}@keyframes bite{0%{transform:translateX(-170px) rotate(-7deg)}48%{transform:translateX(115px) rotate(2deg)}62%{transform:translateX(88px) rotate(2deg)}76%{transform:translateX(115px) rotate(2deg)}100%{transform:translateX(560px) rotate(7deg)}}@keyframes caption{to{opacity:1}}@keyframes hideSplash{to{opacity:0;visibility:hidden;pointer-events:none}}
+/* header */
+.top{background:var(--navy);color:#d9e7ef;font-size:.77rem}.top .wrap{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:8px 0}.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.navin{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:950}.brand img{width:54px;height:54px;object-fit:contain}.brand span{letter-spacing:.04em}.navlinks{display:flex;gap:24px;font-size:.88rem;font-weight:850;color:#526575}.navlinks a:hover{color:var(--blue)}
+/* hero */
+.hero{background:radial-gradient(circle at 82% 18%,#e8f7ff 0,#f7fcff 22%,#fff 55%);padding:72px 0 82px}.heroGrid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:55px}.eyebrow{font-size:.72rem;letter-spacing:.14em;font-weight:950;color:var(--blue);text-transform:uppercase}.hero h1{font-size:clamp(3rem,6.5vw,5.6rem);line-height:.92;letter-spacing:-.06em;margin:17px 0}.hero h1 span{color:var(--blue)}.hero p{max-width:650px;color:var(--muted);font-size:1.08rem;line-height:1.75}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.heroVisual{background:#fff;border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)}.heroVisual img{width:100%;display:block}.heroFacts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.fact{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fbfdff}.fact b{display:block;font-size:.86rem}.fact span{font-size:.73rem;color:var(--muted)}
+/* sections */
+section{padding:78px 0}.head{max-width:720px;margin-bottom:30px}.head h2{font-size:clamp(2.1rem,4vw,3.3rem);letter-spacing:-.04em;margin:8px 0 10px}.head p{color:var(--muted);line-height:1.7}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:19px;padding:22px;background:#fff;box-shadow:0 9px 30px rgba(8,23,34,.045);transition:.2s}.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.card .ico{font-size:1.7rem}.card h3{margin:12px 0 7px}.card p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.55}
+/* booking */
+.booking{background:var(--ice);border-top:1px solid #e4edf3;border-bottom:1px solid #e4edf3}.bookingGrid{display:grid;grid-template-columns:.75fr 1.25fr;gap:30px}.intro h2{font-size:3rem;letter-spacing:-.04em;margin:8px 0}.intro p{color:var(--muted);line-height:1.75}.steps{display:grid;gap:11px;margin-top:24px}.step{display:flex;align-items:center;gap:11px;font-size:.9rem}.num{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;background:#dff2fc;color:var(--blue);font-weight:950}
+.form{background:#fff;border:1px solid var(--line);border-radius:25px;padding:24px;box-shadow:var(--shadow)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}.field label{font-size:.71rem;letter-spacing:.08em;font-weight:950;color:#617282}.field select,.field input,.field textarea{width:100%;padding:13px;border:1px solid #cddae3;border-radius:11px;background:#fff;color:var(--ink);outline:none}.field select:focus,.field input:focus,.field textarea:focus{border-color:#39a9e7;box-shadow:0 0 0 3px #e7f6fd}.field textarea{min-height:88px;resize:vertical}.pricebox{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:18px;padding:18px;border:1px solid #cceafa;border-radius:15px;background:#f1faff}.pricebox .label{font-size:.68rem;letter-spacing:.12em;color:var(--green);font-weight:950}.pricebox .final{font-size:2rem;font-weight:950;color:var(--blue)}.pricebox .sub{font-size:.8rem;color:var(--muted);margin-top:4px}.notice{font-size:.75rem;color:#758696;line-height:1.5;margin-top:10px}.success{display:none;margin-top:13px;padding:14px;border-radius:12px;background:#effbf5;border:1px solid #bcebd2;color:#126843}
+/* price center */
+.priceCenter{background:#fff}.tabs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}.tab{padding:11px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#566675;font-weight:950;cursor:pointer}.tab.active{background:var(--blue);border-color:var(--blue);color:#fff}.panel{display:none;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 8px 30px rgba(8,23,34,.055)}.panel.active{display:block}.panelTop{padding:19px;background:#f7fbfe;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:15px}.panelTop h3{margin:0}.search{width:min(280px,100%);padding:10px 12px;border:1px solid #cedae3;border-radius:10px}.tableWrap{overflow:auto}.priceTable{border-collapse:collapse;width:100%;min-width:620px}.priceTable th,.priceTable td{padding:11px 15px;text-align:left;border-bottom:1px solid #edf1f4}.priceTable th{font-size:.72rem;color:#647584;text-transform:uppercase}.money{font-weight:950;color:var(--blue)}.otherPanel{padding:26px;color:var(--muted);line-height:1.7}
+/* pickup */
+.pickup{background:var(--ice)}.pickupGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.loc{background:#fff;border:1px solid var(--line);border-radius:20px;padding:23px}.loc h3{margin-top:0}.loc p{color:var(--muted);line-height:1.65}.loc input{width:100%;padding:13px;border:1px solid #cedae3;border-radius:10px}.note{margin-top:12px;padding:13px;border-radius:12px;background:#f8fbfd;border:1px solid #e2ebf1;color:#687a89;font-size:.82rem}
+/* footer */
+.cta{padding:75px 0}.ctaBox{background:linear-gradient(135deg,#0a304b,#071720);color:#fff;border-radius:27px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:20px}.ctaBox p{color:#b9cbd7}.footer{border-top:1px solid var(--line);padding:28px 0;color:#778895;font-size:.82rem;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:850px){.navlinks{display:none}.heroGrid,.bookingGrid,.pickupGrid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.cards,.grid{grid-template-columns:1fr}.full{grid-column:auto}.panelTop{align-items:flex-start;flex-direction:column}.search{width:100%}.ctaBox{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="splash" id="splash">
+  <div class="splashInner">
+    <img class="splashLogo" src="logo.jpeg" alt="Rezz Tech Repairs">
+    <div class="dino" aria-hidden="true">🦖</div>
+    <div class="splashCaption">REZZ TECH REPAIRS</div>
+  </div>
+</div>
+
+<div class="top"><div class="wrap">
+  <span>📞 868-732-2445</span><span>💬 WhatsApp available</span>
+  <span>📸 @rezz_Tech_repairs</span><span>Mon–Fri 9AM–5PM • Sat–Sun 9AM–1PM</span>
+</div></div>
+<nav class="nav"><div class="wrap navin">
+  <a class="brand" href="#"><img src="logo.jpeg" alt=""><span>REZZ TECH</span></a>
+  <div class="navlinks"><a href="#services">Services</a><a href="#booking">Book Repair</a><a href="#prices">Prices</a><a href="#pickup">Pickup</a></div>
+  <a class="btn primary" href="#booking">Book Repair</a>
+</div></nav>
+
+<header class="hero"><div class="wrap heroGrid">
+  <div><div class="eyebrow">Trinidad & Tobago • Phone Repair</div>
+    <h1>Repair your phone.<br><span>Without the runaround.</span></h1>
+    <p>Choose your device, choose the repair, choose your exact model, and see the <strong>final repair price</strong> before you request service.</p>
+    <div class="actions"><a class="btn primary" href="#booking">Start a Repair →</a><a class="btn light" href="#prices">Explore Prices</a></div>
+  </div>
+  <div class="heroVisual"><img src="logo.jpeg" alt="Rezz Tech Repairs logo">
+    <div class="heroFacts"><div class="fact"><b>Final pricing</b><span>Listed prices are your final quote.</span></div><div class="fact"><b>Pay after repair</b><span>No online payment required.</span></div></div>
+  </div>
+</div></header>
+
+<section id="services"><div class="wrap"><div class="head"><div class="eyebrow">Simple customer experience</div><h2>Everything your customer needs, in one place.</h2><p>No giant price wall. No guessing. Just select the repair and get moving.</p></div>
+<div class="cards">
+<div class="card"><div class="ico">📱</div><h3>Screen Repair</h3><p>iPhone and Samsung models with your supplied final prices.</p></div>
+<div class="card"><div class="ico">🔌</div><h3>Charging</h3><p>Charging flex and Samsung subboard repairs.</p></div>
+<div class="card"><div class="ico">🔋</div><h3>Battery</h3><p>Choose an eligible iPhone and see the final battery price.</p></div>
+<div class="card"><div class="ico">🛠️</div><h3>More Repairs</h3><p>Ear speaker, front camera, speakers and other repair requests.</p></div>
+</div></div></section>
+
+<section class="booking" id="booking"><div class="wrap bookingGrid">
+<div class="intro"><div class="eyebrow">Online repair builder</div><h2>Build the repair.</h2><p>Start with the phone type, then select the repair and model. When you have supplied a price, it is shown as the <strong>final customer price</strong>.</p>
+<div class="steps"><div class="step"><span class="num">1</span><b>Choose phone type</b></div><div class="step"><span class="num">2</span><b>Choose repair</b></div><div class="step"><span class="num">3</span><b>Choose exact model</b></div><div class="step"><span class="num">4</span><b>Choose or enter pickup location</b></div></div></div>
+
+<form class="form" id="bookingForm">
+<div class="grid">
+<div class="field"><label>PHONE TYPE</label><select id="brand"></select></div>
+<div class="field"><label>REPAIR</label><select id="repair"></select></div>
+<div class="field full"><label>MODEL</label><select id="model"></select></div>
+<div class="field full" id="otherModelWrap" style="display:none"><label>OTHER DEVICE / MODEL</label><input id="otherModel" placeholder="e.g. Google Pixel 8, Xiaomi Redmi Note 13"></div>
+<div class="field"><label>NAME</label><input id="name" required placeholder="Full name"></div>
+<div class="field"><label>PHONE / WHATSAPP</label><input id="customerPhone" required placeholder="868-732-2445"></div>
+<div class="field full"><label>PICKUP / DROP-OFF</label><select id="pickupChoice"><option value="arrange">I'll arrange a location with Rezz Tech</option><option value="customer">I want pickup at my location</option><option value="rezz">Rezz Tech pickup location (to be added)</option></select></div>
+<div class="field full" id="customerLocationWrap" style="display:none"><label>YOUR LOCATION</label><input id="customerLocation" placeholder="Type the location / meeting point you prefer"></div>
+<div class="field full"><label>NOTES</label><textarea id="notes" placeholder="Anything else we should know?"></textarea></div>
+</div>
+<div class="pricebox"><div><div class="label">FINAL REPAIR PRICE</div><div id="summary">Choose your repair</div><div class="sub" id="status"></div></div><div class="final" id="amount">—</div></div>
+<button class="btn primary" style="width:100%;margin-top:16px" type="submit">Request This Repair</button>
+<div class="notice">Listed prices are final customer prices. Customers pay when the repair is completed. Unlisted devices or repairs are quote-required.</div>
+<div class="success" id="success"></div>
+</form></div></section>
+
+<section id="prices" class="priceCenter"><div class="wrap"><div class="head"><div class="eyebrow">Price center</div><h2>Tap a category. See only what you need.</h2><p>We've separated the catalog into focused sections instead of making customers scroll through one huge list.</p></div>
+<div class="tabs"><button class="tab active" data-tab="iphone">iPhone</button><button class="tab" data-tab="samsung">Samsung</button><button class="tab" data-tab="other">Other Devices</button></div>
+<div class="panel active" id="panel-iphone"><div class="panelTop"><h3>iPhone repairs</h3><input class="search" data-search="iphone" placeholder="Search model"></div><div class="tableWrap"><table class="priceTable"><thead><tr><th>Repair</th><th>Model</th><th>Final Price</th></tr></thead><tbody id="iphoneRows"></tbody></table></div></div>
+<div class="panel" id="panel-samsung"><div class="panelTop"><h3>Samsung repairs</h3><input class="search" data-search="samsung" placeholder="Search model"></div><div class="tableWrap"><table class="priceTable"><thead><tr><th>Repair</th><th>Model</th><th>Final Price</th></tr></thead><tbody id="samsungRows"></tbody></table></div></div>
+<div class="panel" id="panel-other"><div class="otherPanel"><h3>Don't see your phone?</h3><p>Choose <strong>Other</strong> in the repair builder and type the brand/model. This keeps the customer moving instead of forcing them through a list of devices you don't currently stock parts for.</p><a class="btn primary" href="#booking">Request a Quote →</a></div></div>
+</div></section>
+
+<section class="pickup" id="pickup"><div class="wrap"><div class="head"><div class="eyebrow">Pickup & drop-off</div><h2>Let the customer choose the location.</h2><p>Because your permanent Rezz Tech location has not been set yet, the website allows a customer to type a preferred pickup/meeting location.</p></div>
+<div class="pickupGrid"><div class="loc"><h3>📍 Customer's preferred location</h3><p>Customers can enter a mall, business, neighborhood or agreed meeting point.</p><input placeholder="e.g. Chaguanas / Tunapuna / agreed meeting point"></div><div class="loc"><h3>🏪 Rezz Tech location</h3><p>This option is ready for the specific safe pickup locations you decide to add later.</p><div class="note">No permanent public location has been entered yet.</div></div></div></div></section>
+
+<section class="cta"><div class="wrap"><div class="ctaBox"><div><div class="eyebrow" style="color:#72d8ff">Rezz Tech Repairs</div><h2>Ready when your phone isn't.</h2><p>868-732-2445 • @rezz_Tech_repairs</p><p>Pay when your repair is completed.</p></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn primary" href="https://wa.me/18687322445">WhatsApp</a><a class="btn light" href="https://instagram.com/rezz_Tech_repairs">Instagram</a></div></div></div></section>
+
+<footer><div class="wrap footer"><span>© 2026 Rezz Tech Repairs</span><span>Professional phone repair • Trinidad & Tobago</span></div></footer>
+
+<script>
+const P={"iPhone":{"Screen Replacement":{"iPhone X":350,"iPhone XR":350,"iPhone XS":350,"iPhone XS Max":550,"iPhone 11":350,"iPhone 11 Pro":450,"iPhone 11 Pro Max":550,"iPhone 12 Mini":550,"iPhone 12":550,"iPhone 12 Pro":550,"iPhone 12 Pro Max":750,"iPhone 13":550,"iPhone 13 Pro":650,"iPhone 13 Pro Max":850,"iPhone 14":650,"iPhone 14 Pro Max":1050,"iPhone 15":1250,"iPhone 15 Pro":1250},"Charging Flex":{"iPhone 6":200,"iPhone 6S":200,"iPhone 6S+":200,"iPhone 7":200,"iPhone 7+":200,"iPhone 8":200,"iPhone 8+":200,"iPhone X":200,"iPhone XS":200,"iPhone XR":200,"iPhone 11":200,"iPhone 12":200,"iPhone 12 Pro":200},"Ear Speaker":{"iPhone X":250,"iPhone XR":250,"iPhone XS":250,"iPhone XS Max":250,"iPhone 11":250,"iPhone 11 Pro":250,"iPhone 12":250,"iPhone 12 Pro":250},"Front Camera":{"iPhone 6":150,"iPhone 6+":150,"iPhone 6S":150,"iPhone 6S+":150,"iPhone 7":200,"iPhone 7+":200,"iPhone 8":200,"iPhone 8+":200,"iPhone X":200,"iPhone XR":200,"iPhone XS":200,"iPhone XS Max":200,"iPhone 11":200,"iPhone 11 Pro":200,"iPhone 11 Pro Max":200,"iPhone 12":200},"Battery Replacement":{"iPhone 6":200,"iPhone 6+":200,"iPhone 6S":200,"iPhone 6S+":200,"iPhone 7":200,"iPhone 7+":200,"iPhone 8":200,"iPhone 8+":200,"iPhone X":300,"iPhone XR":300,"iPhone XS":300,"iPhone XS Max":300,"iPhone 11":300,"iPhone 11 Pro":300,"iPhone 11 Pro Max":300,"iPhone 12":300,"iPhone 12 Pro":300,"iPhone 13 Pro Max":300}},"Samsung":{"Screen Replacement":{"A01":250,"A03 CORE":250,"A10":250,"A10S":250,"A013":250,"A022":300,"A02S":304,"A03":300,"A03S":300,"A04":300,"A04E":300,"A04S":300,"A05":300,"A05S":300,"A06":300,"A07":300,"A10E":300,"A11":300,"A13":300,"A14 5G US":300,"A20S":300,"A22 5G":300,"A23":300,"A32 5G":300,"A037U":350,"A14 5G EURO":350,"A20":350,"A21":350,"A21S":350,"A30":350,"A30S":350,"A14 4G":450,"A22 4G":450,"A730":450,"A750":450,"A15":550,"A31":550,"A32 4G":550,"A16 4G":650,"A16 5G":700,"A17":700,"A24":700,"A70 OLED":700,"A25":750,"A34":750,"A35":750,"A51":750,"A53 OEM":800,"A55":850,"A80 OEM":850,"A52 OEM":1050,"A71 OEM":1050,"G531/2 TP":150,"G531 LCD":200,"G610":300,"J415 / J610":300,"J727":300,"J737":300,"J250":350,"J400":350,"J700":350,"J701":350,"J710":350,"J720":350,"J730":350,"M12":350,"M20":350,"J600":450,"J810":450,"Note 8":1150,"Note 9":1350,"Note 10":1350,"Note 10+":1550,"Note 20 U":2050,"S6":450,"S7":550,"S20 FE":800,"S8":900,"S9":900,"S8+":1050,"S9+":1050,"S10":1150,"S20":1150,"S20+":1150,"S21":1150,"S22":1350,"S10+":1450,"S22 U":1550,"S23 U":1850},"Subboard":{"A01 (C/USB)":150,"A022":150,"A02S":150,"A03":150,"A03S":150,"A03 Core":150,"A04":150,"A04S":150,"A04E":150,"A05":150,"A05S":150,"A06":150,"A10":150,"A10S / M15":150,"A10S / M16":150,"A11":150,"A12":150,"A13":150,"A14 4G":150,"A14 5G (Euro)":150,"A14 5G (US)":150,"A15":150,"A20":150,"A20S / M12":150,"A20S / M14":150,"A21S":150,"A22":150,"A23":150,"A23 (5G)":200,"A24":200,"A25":200,"A30":150,"A30S":150,"A31":150,"A32 4G":150,"A32 5G":150,"A34":200,"A35":200,"A50":150,"A51":150,"A53":150,"A70":150,"A71":200,"A80":200,"Note 10":150,"Note 10+":150},"Speaker":{"All Samsung models":100}},"Other":{}};
+const $=id=>document.getElementById(id);
+const money=n=>'$'+Number(n).toLocaleString('en-TT');
+const brand=$('brand'),repair=$('repair'),model=$('model'),otherWrap=$('otherModelWrap'),other=$('otherModel');
+
+brand.innerHTML='<option>iPhone</option><option>Samsung</option><option>Other</option>';
+
+function refreshRepairs(){
+  const list=Object.keys(P[brand.value]||{});
+  repair.innerHTML=(list.length?list:['Request a Quote']).map(x=>'<option>'+x+'</option>').join('');
+  refreshModels();
+}
+function refreshModels(){
+  const b=brand.value,r=repair.value;
+  otherWrap.style.display=b==='Other'?'flex':'none';
+  if(b==='Other') model.innerHTML='<option>Other device</option>';
+  else{
+    const list=Object.keys((P[b]||{})[r]||{});
+    model.innerHTML=(list.length?list:['Other / not listed']).map(x=>'<option>'+x+'</option>').join('');
+  }
+  refreshPrice();
+}
+function refreshPrice(){
+  const b=brand.value,r=repair.value,m=model.value;
+  let n=null,exact=false;
+  if(b==='Samsung' && r==='Speaker'){n=100;exact=true}
+  else if(b!=='Other' && P[b] && P[b][r]){n=P[b][r][m];exact=typeof n==='number'}
+  const displayModel=b==='Other'?(other.value.trim()||'Other device'):m;
+  $('summary').textContent=b+' • '+r+' • '+displayModel;
+  $('amount').textContent=exact?money(n):'Quote';
+  $('status').textContent=exact?'FINAL CUSTOMER PRICE':'Quote required — no final price supplied for this selection.';
+}
+brand.onchange=refreshRepairs;repair.onchange=refreshModels;model.onchange=refreshPrice;other.oninput=refreshPrice;
+refreshRepairs();
+
+function renderRows(b,target){
+  let out='';
+  for(const r of Object.keys(P[b]||{})){
+    if(b==='Samsung' && r==='Speaker'){
+      out+='<tr><td>Speaker</td><td>All Samsung models</td><td class="money">$100</td></tr>'; continue;
+    }
+    for(const [m,n] of Object.entries(P[b][r])) out+='<tr><td>'+r+'</td><td>'+m+'</td><td class="money">'+money(n)+'</td></tr>';
+  }
+  $(target).innerHTML=out;
+}
+renderRows('iPhone','iphoneRows');renderRows('Samsung','samsungRows');
+
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');$('panel-'+t.dataset.tab).classList.add('active');
+});
+document.querySelectorAll('.search').forEach(s=>s.oninput=()=>{
+  const q=s.value.toLowerCase(), target=s.dataset.search==='iphone'?'iphoneRows':'samsungRows';
+  $(target).querySelectorAll('tr').forEach(row=>row.style.display=row.innerText.toLowerCase().includes(q)?'':'none');
+});
+$('pickupChoice').onchange=()=>{$('customerLocationWrap').style.display=$('pickupChoice').value==='customer'?'flex':'none'};
+$('bookingForm').onsubmit=e=>{
+  e.preventDefault();
+  const exact=$('amount').textContent!=='Quote'&&$('amount').textContent!=='—';
+  const msg=exact?'Repair request captured for testing with the final price shown above.':'Quote request captured for testing.';
+  $('success').style.display='block';$('success').innerHTML='<b>'+msg+'</b><br>'+$('summary').textContent+'<br>Pickup: '+$('pickupChoice').selectedOptions[0].text;
+};
+setTimeout(()=>{const s=$('splash');if(s)s.remove()},3800);
+</script>
+</body>
+</html>
